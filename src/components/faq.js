@@ -59,9 +59,7 @@ const Faq = ({ data }) => {
         <ContentItem id={edges.node.linkId} key={edges.node.id}>
           <Collapsible trigger={edges.node.question}>
             <LongDescription>
-              {documentToReactComponents(
-                edges.node.childContentfulFaqEntryAnswerRichTextNode.json
-              )}
+              {documentToReactComponents(edges.node.answer.json)}
             </LongDescription>
           </Collapsible>
         </ContentItem>

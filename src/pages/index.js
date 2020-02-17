@@ -4,15 +4,22 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import SearchBar from "../components/SearchBar"
+
 import Faq from "../components/faq"
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <SEO title="The Commons Stack Docs" />
-    <h1>Frequently Asked Questions</h1>
-    <Faq data={data.faq.edges} />
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  const jsonObject = JSON.parse(data.search.store)
+  console.log(jsonObject)
+  return (
+    <Layout>
+      <SEO title="The Commons Stack Docs" />
+      <h1>Frequently Asked Questions</h1>
+      <SearchBar index={data.search.index} store={jsonObject} />
+      <Faq data={data.faq.edges} />
+    </Layout>
+  )
+}
 
 export default IndexPage
 
@@ -25,11 +32,15 @@ export const query = graphql`
           linkId
           createdAt
           question
-          childContentfulFaqEntryAnswerRichTextNode {
+          answer {
             json
           }
         }
       }
+    }
+    search: localSearchFaq {
+      index
+      store
     }
   }
 `
