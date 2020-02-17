@@ -25,12 +25,17 @@ const SearchBar = ({ index, store }) => {
       {query ? (
         <div>
           <h1>Results</h1>
-
-          <ul>
-            {results.map(result => (
-              <li key={result.id}>{documentToReactComponents(result.body)}</li>
-            ))}
-          </ul>
+          {results.length === 0 ? (
+            <p>No Results</p>
+          ) : (
+            <ul>
+              {results.map(result => (
+                <li key={result.id}>
+                  {documentToReactComponents(result.body)}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       ) : null}
     </div>
