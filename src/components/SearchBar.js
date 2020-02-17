@@ -22,12 +22,17 @@ const SearchBar = ({ index, store }) => {
           <Field name="query" />
         </Form>
       </Formik>
-      <h1>Results</h1>
-      <ul>
-        {results.map(result => (
-          <li key={result.id}>{documentToReactComponents(result.body)}</li>
-        ))}
-      </ul>
+      {query ? (
+        <div>
+          <h1>Results</h1>
+
+          <ul>
+            {results.map(result => (
+              <li key={result.id}>{documentToReactComponents(result.body)}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </div>
   )
 }
