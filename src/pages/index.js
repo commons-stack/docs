@@ -1,22 +1,22 @@
 import React from "react"
 import { graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import SearchBar from "../components/SearchBar"
-
 import Faq from "../components/faq"
 
+const Section = styled.h1`
+  text-align: center;
+`
+
 const IndexPage = ({ data }) => {
-  const jsonObject = JSON.parse(data.search.store)
-  console.log(jsonObject)
   return (
     <Layout>
       <SEO title="The Commons Stack Docs" />
-      <h1>Frequently Asked Questions</h1>
-      <SearchBar index={data.search.index} store={jsonObject} />
-      <Faq data={data.faq.edges} />
+      <Section>Frequently Asked Questions</Section>
+      <Faq data={data.faqA.edges} />
     </Layout>
   )
 }
@@ -25,7 +25,12 @@ export default IndexPage
 
 export const query = graphql`
   query Faq {
-    faq: allContentfulFaqEntry(sort: { fields: [createdAt], order: ASC }) {
+    faqA: allContentfulFaqEntry(
+      sort: { fields: [createdAt], order: ASC }
+      filter: {
+        category: { category: { eq: "Commons Stack Overview Questions" } }
+      }
+    ) {
       edges {
         node {
           id
@@ -34,6 +39,10 @@ export const query = graphql`
           question
           answer {
             json
+          }
+          category {
+            id
+            category
           }
         }
       }

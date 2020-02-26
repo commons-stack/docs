@@ -2,8 +2,6 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-require("@contentful/rich-text-plain-text-renderer")
-
 module.exports = {
   siteMetadata: {
     title: `The Commons Stack Docs`,
@@ -41,6 +39,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: "gatsby-plugin-local-search",
       options: {
