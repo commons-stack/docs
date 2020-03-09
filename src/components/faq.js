@@ -64,7 +64,7 @@ const Category = styled.h2`
 `
 
 const Faq = ({ data }) => {
-  const hash = window.location.hash
+  const hash = window && window.location && window.location.hash
   console.log(hash)
   return (
     <ContentContainer>
