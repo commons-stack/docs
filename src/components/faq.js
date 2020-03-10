@@ -64,7 +64,11 @@ const Category = styled.h2`
 `
 
 const Faq = ({ data }) => {
-  const hash = window.location.hash
+  const hash =
+    (typeof window !== "undefined" &&
+      window.location &&
+      window.location.hash) ||
+    ""
   console.log(hash)
   return (
     <ContentContainer>
@@ -75,7 +79,7 @@ const Faq = ({ data }) => {
             <Collapsible
               trigger={
                 <span>
-                  <h4>{edges.node.question}</h4>
+                  <h2>{edges.node.question}</h2>
                 </span>
               }
               open={true}
@@ -92,6 +96,7 @@ const Faq = ({ data }) => {
                   <h2>{edges.node.question}</h2>
                 </span>
               }
+              open={false}
             >
               <LongDescription>
                 {documentToReactComponents(edges.node.answer.json)}
