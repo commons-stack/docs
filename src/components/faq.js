@@ -1,4 +1,5 @@
 import React from "react"
+import { onInitialClientRender } from "../../gatsby-browser"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
 import Collapsible from "react-collapsible"
@@ -64,11 +65,7 @@ const Category = styled.h2`
 `
 
 const Faq = ({ data }) => {
-  const hash =
-    (typeof window !== "undefined" &&
-      window.location &&
-      window.location.hash) ||
-    ""
+  const hash = (typeof window !== "undefined" && window.location.hash) || ""
   console.log(hash)
   return (
     <ContentContainer>

@@ -17,6 +17,7 @@ const IndexPage = ({ data }) => {
       <SEO title="The Commons Stack Docs" />
       <Section>Frequently Asked Questions</Section>
       <Faq data={data.faqA.edges} />
+      <Faq data={data.faqB.edges} />
     </Layout>
   )
 }
@@ -29,6 +30,33 @@ export const query = graphql`
       sort: { fields: [createdAt], order: ASC }
       filter: {
         category: { category: { eq: "Commons Stack Overview Questions" } }
+      }
+    ) {
+      edges {
+        node {
+          id
+          linkId
+          createdAt
+          question
+          answer {
+            json
+          }
+          category {
+            id
+            category
+          }
+        }
+      }
+    }
+    search: localSearchFaq {
+      index
+      store
+    }
+
+    faqB: allContentfulFaqEntry(
+      sort: { fields: [createdAt], order: ASC }
+      filter: {
+        category: { category: { eq: "Commons Stack Core Components" } }
       }
     ) {
       edges {
