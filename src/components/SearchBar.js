@@ -4,17 +4,30 @@ import { useFlexSearch } from "react-use-flexsearch"
 import { Formik, Form, Field } from "formik"
 import styled from "styled-components"
 
+const FormikContainer = styled.div`
+  form {
+    display: flex;
+  }
+`
+
 const StyledField = styled(Field)`
+  border: unset;
+  border: 2px solid #67de69;
   background-color: #171717;
   color: #a6a6a6;
-  border-color: #67de69;
   border-radius: 45px;
   padding: 0.5rem;
-  min-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  justify-self: center;
 `
 
 const Results = styled.div`
   grid-template-rows: auto;
+
+  & li {
+    padding-right: 1rem;
+  }
 `
 
 const SearchBar = ({ index, store }) => {
@@ -22,16 +35,21 @@ const SearchBar = ({ index, store }) => {
   const results = useFlexSearch(query, index, store)
 
   return (
-    <div>
+    <FormikContainer className="activestyle">
       <Formik
         initialValues={{ query: "" }}
         onSubmit={(values, { setSubmitting }) => {
           setQuery(values.query)
           setSubmitting(false)
         }}
+        className="activestyle"
       >
-        <Form>
-          <StyledField name="query" placeholder="Search" />
+        <Form className="activestyle">
+          <StyledField
+            name="query"
+            placeholder="Search"
+            className="activestyle"
+          />
         </Form>
       </Formik>
       {query ? (
@@ -51,7 +69,7 @@ const SearchBar = ({ index, store }) => {
           )}
         </Results>
       ) : null}
-    </div>
+    </FormikContainer>
   )
 }
 

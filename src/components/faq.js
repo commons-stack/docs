@@ -6,6 +6,7 @@ import Collapsible from "react-collapsible"
 import ShareButton from "./ShareButton"
 
 const ContentContainer = styled.div`
+  display: grid;
   padding: 3rem 0;
   max-width: 960px;
   margin: 0 auto;

@@ -16,12 +16,19 @@ const SearchContainer = styled.div`
   max-width: 960px;
   margin: 0 auto;
   padding: 0.5rem 0;
+  @media (max-width: 600px) {
+    max-width: 90%;
+  }
 `
 
 const Logo = styled.img``
-const Title = styled.p`
+const Title = styled.h2`
   justify-self: center;
   align-self: center;
+
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
 `
 
 const Header = ({ siteTitle }) => {
@@ -55,11 +62,11 @@ const Header = ({ siteTitle }) => {
           <Link
             to="/"
             style={{
-              color: `#A6A6A6`,
+              color: `#fff`,
               textDecoration: `none`,
             }}
           >
-            {siteTitle}
+            Frequently Asked Questions
           </Link>
         </Title>
       </HeaderContainer>

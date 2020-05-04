@@ -1,21 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import Faq from "../components/faq"
 
-const Section = styled.h1`
-  text-align: center;
-`
-
 const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="The Commons Stack Docs" />
-      <Section>Frequently Asked Questions</Section>
       <Faq data={data.faqA.edges} />
       <Faq data={data.faqB.edges} />
     </Layout>

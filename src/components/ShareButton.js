@@ -1,17 +1,15 @@
 import React from "react"
 import styled from "styled-components"
 
+import { CopyToClipboard } from "react-copy-to-clipboard"
+import ReactTooltip from "react-tooltip"
+
+import ShareIcon from "./ShareIcon"
+
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-
-  img {
-    width: 35px;
-    padding: 5px;
-    border: 0;
-    box-shadow: 0;
-    display: inline;
-  }
+  justify-self: flex-end;
 `
 
 const ShareButton = ({ data }) => {
@@ -19,6 +17,13 @@ const ShareButton = ({ data }) => {
 
   return (
     <ButtonContainer id="share-buttons">
+      <CopyToClipboard text={url}>
+        <div data-tip="Copy link to clipboard" className="icon">
+          <ShareIcon className="icon"></ShareIcon>
+        </div>
+      </CopyToClipboard>
+      <ReactTooltip />
+
       {/*  Buffer 
       <a
         href="https://bufferapp.com/add?url=https://simplesharebuttons.com&amp;text=Simple Share Buttons"
@@ -44,7 +49,7 @@ const ShareButton = ({ data }) => {
       </a>
       */}
 
-      {/*  Email */}
+      {/*  Email 
       <a
         href={`mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 ${url}`}
       >
@@ -53,8 +58,8 @@ const ShareButton = ({ data }) => {
           alt="Email"
         />
       </a>
-
-      {/*  Facebook */}
+*/}
+      {/*  Facebook 
       <a
         href={`http://www.facebook.com/sharer.php?u=${url}`}
         target="_blank"
@@ -65,7 +70,7 @@ const ShareButton = ({ data }) => {
           alt="Facebook"
         />
       </a>
-
+*/}
       {/*  Google+ 
       <a
         href="https://plus.google.com/share?url=https://simplesharebuttons.com"
@@ -79,7 +84,7 @@ const ShareButton = ({ data }) => {
       </a>
       */}
 
-      {/*  LinkedIn */}
+      {/*  LinkedIn 
       <a
         href={`http://www.linkedin.com/shareArticle?mini=true&amp;url=${url}`}
         target="_blank"
@@ -90,7 +95,7 @@ const ShareButton = ({ data }) => {
           alt="LinkedIn"
         />
       </a>
-
+*/}
       {/*  Pinterest 
       <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
         <img
@@ -109,7 +114,7 @@ const ShareButton = ({ data }) => {
       </button>
       */}
 
-      {/*  Reddit */}
+      {/*  Reddit 
       <a
         href="http://reddit.com/submit?url=https://simplesharebuttons.com&amp;title=Simple Share Buttons"
         target="_blank"
@@ -120,7 +125,7 @@ const ShareButton = ({ data }) => {
           alt="Reddit"
         />
       </a>
-
+*/}
       {/*  StumbleUpon
       <a
         href="http://www.stumbleupon.com/submit?url=https://simplesharebuttons.com&amp;title=Simple Share Buttons"
@@ -147,7 +152,7 @@ const ShareButton = ({ data }) => {
       </a>
       */}
 
-      {/*  Twitter */}
+      {/*  Twitter 
       <a
         href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons"
         target="_blank"
@@ -158,6 +163,7 @@ const ShareButton = ({ data }) => {
           alt="Twitter"
         />
       </a>
+      */}
 
       {/*  VK 
       <a
