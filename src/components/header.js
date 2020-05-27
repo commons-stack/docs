@@ -31,6 +31,26 @@ const Title = styled.h2`
   }
 `
 
+const ApplyButton = styled.button`
+  border: unset;
+  border: 2px solid #67de69;
+  background-color: #171717;
+  color: #a6a6a6;
+  border-radius: 45px;
+  width: 105px;
+  font-size: 18px;
+  font-weight: 400;
+  justify-self: right;
+  padding: 0.5rem 1rem;
+  align-self: center;
+  a {
+    text-decoration: none;
+  }
+  :hover {
+    background-color: white;
+  }
+`
+
 const Header = ({ siteTitle }) => {
   const data = useStaticQuery(graphql`
     query SiteSearchQuery {
@@ -69,6 +89,9 @@ const Header = ({ siteTitle }) => {
             Frequently Asked Questions
           </Link>
         </Title>
+        <ApplyButton type="button">
+          <a href="https://the-commons-stack.typeform.com/to/nG7xc1">Apply</a>
+        </ApplyButton>
       </HeaderContainer>
       <SearchContainer>
         <SearchBar index={data.search.index} store={jsonObject} />
