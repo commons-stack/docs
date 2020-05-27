@@ -56,7 +56,13 @@ const SearchBar = ({ index, store }) => {
         <Results>
           <h1>Results</h1>
           {results.length === 0 ? (
-            <p>No Results</p>
+            <div>
+              <p> "Couldn't find the answer to your question?</p>
+              <p>
+                Join our community and ask away!{" "}
+                <a href="https://t.me/commonsstack">t.me/commonsstack</a>
+              </p>
+            </div>
           ) : (
             <ol>
               {results.map(result => (
