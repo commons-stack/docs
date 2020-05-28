@@ -11,6 +11,12 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="The Commons Stack Docs" />
       <Faq data={data.faqA.edges} />
+      <Faq data={data.faqB.edges} />
+      <Faq data={data.faqC.edges} />
+      <Faq data={data.faqD.edges} />
+      <Faq data={data.faqE.edges} />
+      <Faq data={data.faqF.edges} />
+      <Faq data={data.faqG.edges} />
     </Layout>
   )
 }
@@ -155,11 +161,7 @@ export const query = graphql`
     faqF: allContentfulFaqEntry(
       sort: { fields: [createdAt], order: ASC }
       filter: {
-        category: {
-          category: {
-            eq: "Commons Stack Component Questions (Iteration 2, 4, 5)"
-          }
-        }
+        category: { category: { eq: "Commons Stack Core Components" } }
       }
     ) {
       edges {
