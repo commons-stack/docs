@@ -10,6 +10,7 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   justify-self: flex-end;
+  padding-bottom: 4rem;
 `
 
 const ShareButton = ({ data }) => {

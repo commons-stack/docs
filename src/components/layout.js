@@ -35,6 +35,7 @@ const Content = styled.div`
 `
 
 const Footer = styled.footer`
+  padding-top: 10vh;
   font-size: 14px;
 `
 

@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="The Commons Stack Docs" />
-      <Faq data={data.faqA.edges} />
+      <Faq data={data.faqA.edges} isopen />
       <Faq data={data.faqB.edges} />
       <Faq data={data.faqC.edges} />
       <Faq data={data.faqD.edges} />
