@@ -11,12 +11,12 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="The Commons Stack Docs" />
       <Faq data={data.faqA.edges} isopen />
-      <Faq data={data.faqB.edges} />
-      <Faq data={data.faqC.edges} />
-      <Faq data={data.faqD.edges} />
-      <Faq data={data.faqE.edges} />
-      <Faq data={data.faqF.edges} />
-      <Faq data={data.faqG.edges} />
+      <Faq data={data.faqB.edges} isopen />
+      <Faq data={data.faqC.edges} isopen />
+      <Faq data={data.faqD.edges} isopen />
+      <Faq data={data.faqE.edges} isopen />
+      <Faq data={data.faqF.edges} isopen />
+      <Faq data={data.faqG.edges} isopen />
     </Layout>
   )
 }
