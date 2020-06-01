@@ -82,11 +82,6 @@ const QuestionSpan = styled.span`
   grid-template-columns: auto 1fr;
   cursor: pointer;
   align-items: center;
-
-  :hover {
-    background-color: white;
-    border-radius: 50px;
-  }
 `
 
 const ArrowDown = styled.img`
