@@ -14,7 +14,7 @@ const ButtonContainer = styled.div`
 `
 
 const ShareButton = ({ data }) => {
-  const url = `https://docs.commonsstack.org/#${data}`
+  const url = `https://faq.commonsstack.org/#${data}`
 
   return (
     <ButtonContainer id="share-buttons">
