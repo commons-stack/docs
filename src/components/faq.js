@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
 import Collapsible from "react-collapsible"
@@ -96,8 +96,12 @@ const ArrowUp = styled.img`
 `
 
 const Faq = ({ data, isopen }) => {
-  const hash = (typeof window !== "undefined" && window.location.hash) || ""
-  console.log(hash)
+  const [hash, setHash] = useState("")
+
+  useEffect(() => {
+    setHash((typeof window !== "undefined" && window.location.hash) || "")
+    console.log(hash)
+  }, [hash])
 
   return (
     <ContentContainer>
