@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `The Commons Stack Docs`,
-    description: `Documentation for The Commons Stack`,
-    author: `@geleeroyale`,
+    title: `The Commons Stack FAQ`,
+    description: `Commons Stack Frequently Asked Questions`,
+    author: `@thecommonsstack`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
