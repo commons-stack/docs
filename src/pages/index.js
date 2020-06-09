@@ -9,14 +9,14 @@ import Faq from "../components/faq"
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="The Commons Stack Docs" />
+      <SEO title="Commons Stack FAQ" />
       <Faq data={data.faqA.edges} isopen />
-      <Faq data={data.faqB.edges} />
-      <Faq data={data.faqC.edges} />
-      <Faq data={data.faqD.edges} />
-      <Faq data={data.faqE.edges} />
-      <Faq data={data.faqF.edges} />
-      <Faq data={data.faqG.edges} />
+      <Faq data={data.faqB.edges} isopen />
+      <Faq data={data.faqC.edges} isopen />
+      <Faq data={data.faqD.edges} isopen />
+      <Faq data={data.faqE.edges} isopen />
+      <Faq data={data.faqF.edges} isopen />
+      <Faq data={data.faqG.edges} isopen />
     </Layout>
   )
 }
