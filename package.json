@@ -1,8 +1,8 @@
 {
-  "name": "commons-stack-docs",
+  "name": "commons-stack-faq",
   "private": true,
-  "description": "Docs for The Commons Stack",
-  "version": "0.1.0",
+  "description": "FAQ for The Commons Stack",
+  "version": "1.0.0",
   "author": "Geleeroyale <geleeroyale@parallele.at>",
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^14.0.0",
