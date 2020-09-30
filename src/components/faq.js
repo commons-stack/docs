@@ -91,12 +91,16 @@ const QuestionSpan = styled.span`
 const ArrowDown = styled.img`
   justify-self: end;
   height: 15px;
+  margin: 0.5rem;
+  padding: 0.1rem;
 `
 
 const ArrowUp = styled.img`
   justify-self: end;
   transform: rotate(180deg);
   height: 15px;
+  margin: 0.5rem;
+  padding: 0.1rem;
 `
 
 const Faq = ({ data, isopen }) => {
