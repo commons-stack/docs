@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS } from "@contentful/rich-text-types"
 import styled from "styled-components"
 import Collapsible from "react-collapsible"
 
@@ -98,6 +99,43 @@ const ArrowUp = styled.img`
 const Faq = ({ data, isopen }) => {
   const [hash, setHash] = useState("")
 
+  const richTextOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        const { title, description, file } = node.data.target.fields
+        const mimeType = file["en-US"].contentType
+        const mimeGroup = mimeType.split("/")[0]
+
+        switch (mimeGroup) {
+          case "image":
+            return (
+              <img
+                title={title ? title["en-US"] : null}
+                alt={description ? description["en-US"] : null}
+                src={file["en-US"].url}
+              />
+            )
+          case "application":
+            return (
+              <a
+                alt={description ? description["en-US"] : null}
+                href={file["en-US"].url}
+              >
+                {title ? title["en-US"] : file["en-US"].details.fileName}
+              </a>
+            )
+          default:
+            return (
+              <span style={{ backgroundColor: "red", color: "white" }}>
+                {" "}
+                {mimeType} embedded asset{" "}
+              </span>
+            )
+        }
+      },
+    },
+  }
+
   useEffect(() => {
     setHash((typeof window !== "undefined" && window.location.hash) || "")
     console.log(hash)
@@ -160,7 +198,10 @@ const Faq = ({ data, isopen }) => {
                 open={false}
               >
                 <LongDescription>
-                  {documentToReactComponents(edges.node.answer.json)}
+                  {documentToReactComponents(
+                    edges.node.answer.json,
+                    richTextOptions
+                  )}
                 </LongDescription>
                 <ShareButton data={edges.node.linkId} />
               </Collapsible>
