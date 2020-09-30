@@ -9,7 +9,7 @@ import Faq from "../components/faq"
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Commons Stack FAQ" />
+      <SEO title='Commons Stack FAQ' />
       <Faq data={data.faqA.edges} isopen />
       <Faq data={data.faqB.edges} isopen />
       <Faq data={data.faqC.edges} isopen />
@@ -81,9 +81,7 @@ export const query = graphql`
 
     faqC: allContentfulFaqEntry(
       sort: { fields: [createdAt], order: ASC }
-      filter: {
-        category: { category: { eq: "Augmented Bonding Curve (Iteration 1)" } }
-      }
+      filter: { category: { category: { eq: "Augmented Bonding Curve" } } }
     ) {
       edges {
         node {
@@ -108,9 +106,7 @@ export const query = graphql`
 
     faqD: allContentfulFaqEntry(
       sort: { fields: [createdAt], order: ASC }
-      filter: {
-        category: { category: { eq: "Conviction Voting (Iteration 3)" } }
-      }
+      filter: { category: { category: { eq: "Conviction Voting" } } }
     ) {
       edges {
         node {
