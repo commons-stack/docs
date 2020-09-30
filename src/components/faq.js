@@ -15,6 +15,9 @@ const ContentContainer = styled.div`
   margin: 0 auto;
   justify-content: center;
   color: #67de69;
+  @media (max-width: 512px) {
+    max-width: 80vw;
+  }
 `
 
 const ContentItem = styled.div`
@@ -126,7 +129,7 @@ const Faq = ({ data, isopen }) => {
             )
           default:
             return (
-              <span style={{ backgroundColor: "red", color: "white" }}>
+              <span style={{ backgroundColor: "black", color: "white" }}>
                 {" "}
                 {mimeType} embedded asset{" "}
               </span>
